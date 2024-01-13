@@ -42,7 +42,6 @@
 		DD7C39172B52895600F2CA4B /* PostsEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7C39162B52895600F2CA4B /* PostsEndpoints.swift */; };
 		DD7C39192B528B3C00F2CA4B /* PostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7C39182B528B3C00F2CA4B /* PostsService.swift */; };
 		DD7C391F2B52967A00F2CA4B /* SpecificPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7C391E2B52967A00F2CA4B /* SpecificPostView.swift */; };
-		DDFD3AAE2B52B016000A6616 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DDFD3AAD2B52B016000A6616 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDFD3AAE2B52B016000A6616 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +420,6 @@
 			);
 			name = "MVVM-SWIFT-UI-EXAMPLE";
 			packageProductDependencies = (
-				DDFD3AAD2B52B016000A6616 /* SwiftyJSON */,
 			);
 			productName = "MVVM-SWIFT-UI-EXAMPLE";
 			productReference = DD7C383D2B514A1D00F2CA4B /* MVVM-SWIFT-UI-EXAMPLE.app */;
@@ -500,7 +497,6 @@
 			);
 			mainGroup = DD7C38342B514A1D00F2CA4B;
 			packageReferences = (
-				DDFD3AAC2B52B016000A6616 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = DD7C383E2B514A1D00F2CA4B /* Products */;
 			projectDirPath = "";
@@ -1042,25 +1038,6 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DDFD3AAC2B52B016000A6616 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DDFD3AAD2B52B016000A6616 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DDFD3AAC2B52B016000A6616 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DD7C38352B514A1D00F2CA4B /* Project object */;
 }
