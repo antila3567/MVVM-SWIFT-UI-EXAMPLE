@@ -13,8 +13,11 @@ class URLSessionAPIClient<EndpointType: APIEndpoint>: APIClient {
         let url = endpoint.baseURL.appendingPathComponent(endpoint.path)
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
+
+        if let body = endpoint.parameters {
+            request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        }
         
-        // Set up any request headers or parameters here
         endpoint.headers?.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
         
         return URLSession.shared.dataTaskPublisher(for: request)

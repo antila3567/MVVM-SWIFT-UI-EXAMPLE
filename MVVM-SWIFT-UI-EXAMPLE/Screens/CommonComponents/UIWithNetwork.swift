@@ -10,8 +10,8 @@ import SwiftUI
 struct UIWithNetwork<Content: View>: View {
     var error: String
     var isLoading: Bool
-    var fetcher: () -> ()
-    var errorCleaner: () -> ()
+    var fetcher: () -> Void
+    var errorCleaner: () -> Void
     var Component: () -> Content
     
     var body: some View {

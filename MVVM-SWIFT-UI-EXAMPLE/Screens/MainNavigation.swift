@@ -59,7 +59,7 @@ struct CustomTabs: View {
 }
 
 struct MainNavigation: View {
-    @State private var selectedTab: Tab = .person
+    @State private var selectedTab: Tab = .paperplane
     
     init() {
         UITabBar.appearance().isHidden = true

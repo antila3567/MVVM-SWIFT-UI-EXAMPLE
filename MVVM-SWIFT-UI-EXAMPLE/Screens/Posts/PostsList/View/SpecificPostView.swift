@@ -7,12 +7,74 @@
 
 import SwiftUI
 
+import SwiftUI
+
+
 struct SpecificPostView: View {
+    @ObservedObject var vm: PostViewModel
+    var postId: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        UIWithNetwork(
+            error: vm.error,
+            isLoading: vm.isFetching,
+            fetcher: { vm.fetchSpecificPost(postId: postId) },
+            errorCleaner: vm.clearError
+        ) {
+            PostCard(specificPost: vm.specificPost)
+        }
+    }
+    
+    
+    @ViewBuilder
+    func PostCard(specificPost: Post?) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            if let post = specificPost {
+                Text(post.title)
+                    .font(.title2)
+                Text(post.body)
+                
+                HStack {
+                    Button {
+                        vm.updateSpecificPost(id: postId, updatedPost: Post(
+                            userID: 1,
+                            id: post.id,
+                            title: "Updated title",
+                            body: "Updated body must be here"
+                        ))
+                    } label: {
+                        Text("Update Post")
+                    }
+                    .padding()
+                    .background(Color.black)
+                    .cornerRadius(20)
+                    .foregroundColor(.white)
+                    
+                    Spacer()
+                
+                    Button {
+                        vm.deletePostById(id: postId)
+                    } label: {
+                        Text("Delete Post")
+                    }
+                    .padding()
+                    .background(Color.black)
+                    .cornerRadius(20)
+                    .foregroundColor(.white)
+              
+                }
+                .padding(.top, 20)
+
+            }
+        }
+        .padding(20)
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(radius: 5)
     }
 }
 
 #Preview {
-    SpecificPostView()
+    SpecificPostView(vm: PostViewModel.init(postService: PostService()), postId: "1")
 }
+
